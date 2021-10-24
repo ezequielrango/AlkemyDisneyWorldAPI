@@ -41,4 +41,16 @@ module.exports = (sequelize,dataTypes) => {
     }
 
     const Character = sequelize.define(alias,cols,config);
+
+    Character.associate = (models) =>{                //apply sequelize method
+
+        Character.belongsToMany(models.characters,{
+            as : "movies",
+            through : "movieCharacter",    //Pivot table
+            foreignKey : "characterId",   //FK Pivot
+            otherKey : "movieId"         //FK Pivot
+        })
+    }
+    
+    return Character
 }
