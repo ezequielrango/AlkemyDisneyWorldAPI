@@ -1,6 +1,8 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from 'express';
 
 
-router.post('/login')
-router.post('/register')
+Router.post('/login')
+Router.post('/register')
+
+
+module.exports = Router
