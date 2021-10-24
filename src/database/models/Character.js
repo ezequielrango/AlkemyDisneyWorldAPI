@@ -35,6 +35,10 @@ module.exports = (sequelize,dataTypes) => {
 
     }
 
+    const config = {
+        timestamps: true,
+        tableName: "characters",
+    }
 
-
+    const Character = sequelize.define(alias,cols,config);
 }
