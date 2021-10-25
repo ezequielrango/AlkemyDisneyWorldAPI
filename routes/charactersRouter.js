@@ -21,6 +21,14 @@ router.post('/',controller.create)
 router.put('/:id',controller.update)
 router.delete('/:id',controller.delete)
 
+    // Excercise 5
+
+router.get('/:id',controller.detail)
+
+
+
+
+
 
 
 

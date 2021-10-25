@@ -5,7 +5,7 @@ const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
 
 
-module.exports={
+module.exports= {
 
     // Exercise 3 Challenge
 
@@ -143,6 +143,24 @@ module.exports={
                 }
                 res.status(500).json(response)
              })
-     }
+     },
 
+
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+
+
+    detail : async (req,res)=> {  
+        db.characters.findByPk(req.params.id,{
+            include : [                   // 2 parameter
+                { association :'movies', attributes: ['name','id', 'title']}  // name association and atributes other model
+            ]
+        }).then(detailCharacter=> {
+            db.movies.findOne({
+                where : {
+                    id : detailCharacter.movieId,
+                },
+        })
+    }
+
+        )}
 }
