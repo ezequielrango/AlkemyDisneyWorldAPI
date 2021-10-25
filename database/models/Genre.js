@@ -1,11 +1,11 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, dataTypes) => {
 
     const alias = "genres"
 
     const cols = {
 
         id : {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false
@@ -27,5 +27,11 @@ module.exports = (sequelize, DataTypes) => {
 
     const Genre = sequelize.define(alias,cols,config);
 
+    Genre.associate = (models) =>{
+        Genre.hasMany(models.movies,{
+            as : "movies",
+            foreignKey : "genreId"
+        }) 
+    }
     return Genre;
 }

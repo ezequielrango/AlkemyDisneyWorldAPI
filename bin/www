@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('sprint3:server');
+var debug = require('debug')('');
 var http = require('http');
 const {Sequelize} = require('sequelize');
 
@@ -32,7 +32,7 @@ server.on('listening', onListening);
 
 /*--------  test conection DB  -------------*/
 
-const sequelize = new Sequelize('fourgametest', process.env.DB_USER, process.env.DB_PASSWORD, {
+const sequelize = new Sequelize('disneyworld', process.env.DB_USER, process.env.DB_PASSWORD, {
   host: process.env.HOST,
   dialect: 'mysql'
 });
