@@ -72,5 +72,77 @@ module.exports={
         })
      },
 
+   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+
+     update : async (req,res)=> {
+        db.characters.findByPk(req.params.id)
+        .then(character=>{
+            db.characters.update({
+                 name : req.body.name,
+                 age: +req.body.age,
+                 weight: +req.body.weight,
+                 history: req.body.history,
+                 image: req.body.image
+            },{
+                where : {
+                    id : req.params.id    
+                }  
+        
+             }).then(characterUpdate=>{
+                 const response = {
+                     status :200,
+                     meta : {
+                        url : getURLBase(req) + '/characters/' + character.id
+                    },
+                     msg : 'character updated '
+                 }
+                 res.status(200).json(response);
+    
+             }).catch(err=> { // err update 
+                 console.log(err);
+                 const response = {
+                    status : 500,
+                    msg :'internal server error ju-ju'
+                }
+                res.status(500).json(response)
+             })
+            
+        }).catch(err => { // err question db
+            console.log(err);
+            const response = {
+                status : 500,
+                msg : 'character doesnt exist in the API'
+            }
+            res.status(500).json(response)
+        })
+     },
+
+
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+
+     delete : async (req,res) => {
+        db.characters.findByPk(req.params.id)
+
+        .then(characterDestroy =>{
+            db.characters.destroy({
+                where : {
+                    id : req.params.id
+                }
+            })
+            const response = {
+                status : 200,
+                msg : 'character deleted'
+            }
+            res.status(200).json(response)
+
+        }).catch(err=> { // err update 
+                 console.log(err);
+                 const response = {
+                    status : 500,
+                    msg :'internal server error ju-ju'
+                }
+                res.status(500).json(response)
+             })
+     }
 
 }

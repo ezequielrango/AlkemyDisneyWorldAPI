@@ -1,3 +1,4 @@
+const { Router } = require('express');
 var express = require('express');
 var router = express.Router();
 
@@ -10,7 +11,7 @@ const controller= require('../controllers/characterController')
 
 
     // Excercise 3 
-    
+
 router.get('/', controller.list)
 
 
@@ -18,5 +19,9 @@ router.get('/', controller.list)
 
 router.post('/',controller.create)
 router.put('/:id',controller.update)
+router.delete('/:id',controller.delete)
+
+
+
 
 module.exports = router
