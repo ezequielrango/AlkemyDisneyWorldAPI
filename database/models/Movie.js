@@ -58,7 +58,7 @@ module.exports = (sequelize,dataTypes) => {
         Movie.belongsToMany(models.characters,{
             as : "characters",
             through : "movieCharacter",      //Pivot table
-            foreignKey : "movieId" ,        //FK Pivot
+            foreignKey : "movieId" ,        // id que hace referencia a la tabla actual
             otherKey : "characterId"       //FK Pivot
         })
     }

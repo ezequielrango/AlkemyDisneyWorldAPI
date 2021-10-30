@@ -44,10 +44,10 @@ module.exports = (sequelize,dataTypes) => {
 
     Character.associate = (models) =>{                //apply sequelize method
 
-        Character.belongsToMany(models.characters,{
+        Character.belongsToMany(models.movies,{
             as : "movies",
             through : "movieCharacter",    //Pivot table
-            foreignKey : "characterId",   //FK Pivot
+            foreignKey : "characterId",   // id que hace referencia a la tabla actual
             otherKey : "movieId"         //FK Pivot
         })
     }

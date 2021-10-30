@@ -1,6 +1,5 @@
 const db = require('../database/models')
 const {Op} = require('sequelize')
-const getURL = req => `${req.protocol}://${req.get('host')}${req.originalUrl}`;
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
 
@@ -21,7 +20,7 @@ module.exports= {
                  data : characters
              }
              res.json(response)
-            //  res.status(200).json(characters) // ERROR QUE COSTÓ 4HS DE MI TIEMPO >.<
+        
              
         }).catch(err =>{
                 console.log(err);
@@ -149,18 +148,66 @@ module.exports= {
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
 
 
+        // Exercise 5 Detail Character
+
+
     detail : async (req,res)=> {  
         db.characters.findByPk(req.params.id,{
             include : [                   // 2 parameter
-                { association :'movies', attributes: ['name','id', 'title']}  // name association and atributes other model
+                { association :'movies',include:[// name association and atributes other model
+                    {association: 'genre'} // asociacion de la asociacion
+                ]}  
             ]
         }).then(detailCharacter=> {
-            db.movies.findOne({
-                where : {
-                    id : detailCharacter.movieId,
+           const response = {
+               status : 200,
+               msg : 'character and movie associate',
+               data : detailCharacter
+           }
+           res.status(200).json(response)
+        }).catch(err=>{
+            console.log(err);
+            const response = {
+                status: 404,
+                msg: 'character no exist'
+            }
+            res.status(404).json(response)
+        })
+    },
+
+        // Exercise 6 Challenge Search character
+
+    search : (req,res) => {
+        db.characters.findAll({
+            attributes: ['name','age','weight'],
+  
+            include : [{association: 'movies'}],
+   
+            where: {
+                name : {
+                    [Op.substring] : req.query.name
                 },
+                age : {
+                    [Op.substring] : req.query.age
+                },
+                weight : {
+                    [Op.substring] : req.query.weight
+                }
+            }
+        }).then(characters=>{
+            const response = {
+                status : 200,
+                msg: 'character search succesfully',
+                data : characters
+            }
+            res.status(200).json(response)
+        }).catch(err => {
+            const response = {
+                status: 404,
+                msg : 'Characters not found'
+            }
+            res.status(404).json(response)
         })
     }
-
-        )}
+        
 }

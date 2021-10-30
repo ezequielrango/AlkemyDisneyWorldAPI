@@ -25,8 +25,9 @@ router.delete('/:id',controller.delete)
 
 router.get('/:id',controller.detail)
 
+  // Excercise 6 Search character
 
-
+router.get('/search',controller.search)
 
 
 
