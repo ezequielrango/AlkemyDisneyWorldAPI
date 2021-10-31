@@ -31,7 +31,6 @@ module.exports= {
                 }
                 res.status(500).json(response);
             })
-        // res.send(200,{message: 'probando'})
      },
 
 

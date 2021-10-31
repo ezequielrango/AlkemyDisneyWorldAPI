@@ -1,6 +1,6 @@
-const { Router } = require('express');
-var express = require('express');
-var router = express.Router();
+
+const express = require('express');
+const router = express.Router();
 
 // Controllers
 const controller= require('../controllers/characterController')
@@ -25,9 +25,7 @@ router.delete('/:id',controller.delete)
 
 router.get('/:id',controller.detail)
 
-  // Excercise 6 Search character
 
-router.get('/search',controller.search)
 
 
 

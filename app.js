@@ -15,13 +15,13 @@ app.use(cookieParser());
 // Require routes
 
 const characterRouter = require('./routes/charactersRouter');
-
+const movieRouter = require('./routes/moviesRouter')
 
 
 
 // ENDPOINTS
 app.use('/characters',characterRouter); 
-
+app.use('/movies',movieRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
