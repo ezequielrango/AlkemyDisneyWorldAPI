@@ -39,7 +39,6 @@ module.exports= {
     // Exercise 4 Challenge (CRUD)
 
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/    
      create : async (req,res)=> {
    
         db.characters.create({
@@ -70,7 +69,9 @@ module.exports= {
         })
      },
 
-   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+
+/*============================================*/
+
 
      update : async (req,res)=> {
         db.characters.findByPk(req.params.id)
@@ -116,7 +117,8 @@ module.exports= {
      },
 
 
-  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+ /*============================================*/
+
 
      delete : async (req,res) => {
         db.characters.findByPk(req.params.id)
@@ -144,7 +146,7 @@ module.exports= {
      },
 
 
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ 
+/*============================================*/
 
 
         // Exercise 5 Detail Character
@@ -173,6 +175,8 @@ module.exports= {
             res.status(404).json(response)
         })
     },
+
+ /*============================================*/
 
         // Exercise 6 Challenge Search character
 
