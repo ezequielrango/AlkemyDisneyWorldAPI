@@ -9,5 +9,11 @@ const controller= require('../controllers/moviesController')
 router.get('/',controller.list)
 
 
+  // Exercise 8 Challenge
+
+router.get('/:id',controller.detail)
+
+
+
 
 module.exports= router;
