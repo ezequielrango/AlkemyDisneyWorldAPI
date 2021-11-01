@@ -6,11 +6,26 @@ const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
 module.exports= {
 
-    // Exercise 3 Challenge
+    // Exercise 3 and 6 Challenge
 
     list : async (req,res)=> {
         db.characters.findAll({
-            attributes: ["name", "image"]
+            attributes : ["id","image","name"],
+            where : {
+                name : {
+                    [Op.substring] : req.query.name ? req.query.name : ""
+                },
+                age : {
+                    [Op.substring] : req.query.age ? req.query.age : ""
+                },             
+                weight : {
+                    [Op.substring] : req.query.weight ? req.query.weight : ""
+                }, 
+            },
+
+            order : [
+                ["name",req.query.order && req.query.order.toUpperCase() == "DESC" ? req.query.order : "ASC"]
+            ]
         }).then(characters =>{
              let response = {
                  meta : {
@@ -180,37 +195,37 @@ module.exports= {
 
         // Exercise 6 Challenge Search character
 
-    search : (req,res) => {
-        db.characters.findAll({
-            attributes: ['name','age','weight'],
+    // search : (req,res) => {
+    //     db.characters.findAll({
+    //         attributes: ['name','age','weight'],
   
-            include : [{association: 'movies'}],
+    //         include : [{association: 'movies'}],
    
-            where: {
-                name : {
-                    [Op.substring] : req.query.name
-                },
-                age : {
-                    [Op.substring] : req.query.age
-                },
-                weight : {
-                    [Op.substring] : req.query.weight
-                }
-            }
-        }).then(characters=>{
-            const response = {
-                status : 200,
-                msg: 'character search succesfully',
-                data : characters
-            }
-            res.status(200).json(response)
-        }).catch(err => {
-            const response = {
-                status: 404,
-                msg : 'Characters not found'
-            }
-            res.status(404).json(response)
-        })
-    }
+    //         where: {
+    //             name : {
+    //                 [Op.substring] : req.query.name
+    //             },
+    //             age : {
+    //                 [Op.substring] : req.query.age
+    //             },
+    //             weight : {
+    //                 [Op.substring] : req.query.weight
+    //             }
+    //         }
+    //     }).then(characters=>{
+    //         const response = {
+    //             status : 200,
+    //             msg: 'character search succesfully',
+    //             data : characters
+    //         }
+    //         res.status(200).json(response)
+    //     }).catch(err => {
+    //         const response = {
+    //             status: 404,
+    //             msg : 'Characters not found'
+    //         }
+    //         res.status(404).json(response)
+    //     })
+    // }
         
 }
