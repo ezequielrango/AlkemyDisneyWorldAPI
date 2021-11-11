@@ -193,39 +193,6 @@ module.exports= {
 
  /*============================================*/
 
-        // Exercise 6 Challenge Search character
 
-    // search : (req,res) => {
-    //     db.characters.findAll({
-    //         attributes: ['name','age','weight'],
-  
-    //         include : [{association: 'movies'}],
-   
-    //         where: {
-    //             name : {
-    //                 [Op.substring] : req.query.name
-    //             },
-    //             age : {
-    //                 [Op.substring] : req.query.age
-    //             },
-    //             weight : {
-    //                 [Op.substring] : req.query.weight
-    //             }
-    //         }
-    //     }).then(characters=>{
-    //         const response = {
-    //             status : 200,
-    //             msg: 'character search succesfully',
-    //             data : characters
-    //         }
-    //         res.status(200).json(response)
-    //     }).catch(err => {
-    //         const response = {
-    //             status: 404,
-    //             msg : 'Characters not found'
-    //         }
-    //         res.status(404).json(response)
-    //     })
-    // }
         
 }

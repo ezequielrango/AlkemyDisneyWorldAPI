@@ -12,7 +12,7 @@ const controller= require('../controllers/characterController')
 
     // Excercise 3 
 
-router.get('/', controller.list)
+router.get('/list', controller.list)
 
 
     // Excercise 4

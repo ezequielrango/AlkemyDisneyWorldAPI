@@ -12,17 +12,21 @@ module.exports = {
     list : (req,res) => {
         db.movies.findAll({
             attributes : ['title','release','image'],
+
+            include: [{association: 'genre'}],
+
             where : {
                 title : {
-                    [Op.substring] : req.query.title ? req.query.title : ""
+                    [Op.substring] : req.query.title ? req.query.title : ""  // Si a través de la query del request viene un title, busca por ese valor o sino trae todos. El Op. toma el espacio del string.
                 },
-                genderId : {
+                genreId : {
                     [Op.substring] : req.query.genre ? req.query.genre : ""
                 } 
             },
             order : [
                 ["title",req.query.order && req.query.order.toUpperCase() == "DESC" ? req.query.order : "ASC"]
-            ]
+            ]  // Example : http://localhost:3030/movies/?order=DESC  || http://localhost:3030/movies/?order=ASC
+      
         }).then(movies => {
             const response = {
                 status : 200,
