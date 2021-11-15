@@ -1,5 +1,6 @@
 
 const {body} = require('express-validator');
+const db = require('../database/models')
 
 module.exports =  [
 
@@ -15,7 +16,11 @@ module.exports =  [
     body('release')
         .notEmpty().withMessage('Enter a Date')
         .isDate().withMessage('Format error'),
-    
+      
+     body("image")
+        .notEmpty().withMessage("The image is required")
+        .isLength({max : 255}).withMessage("Maximun length reached"),
+
     
      body('genreId')
         .notEmpty().withMessage('Enter corresponding genre')

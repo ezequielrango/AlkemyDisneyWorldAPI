@@ -3,6 +3,8 @@ const {Op} = require('sequelize')
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
 
+const { validationResult } = require("express-validator");
+
 module.exports = {
     
 
@@ -84,33 +86,44 @@ module.exports = {
 
     
     create : async (req,res)=> {
-   
-        db.movies.create({
-            title : req.body.title,
-            score : +req.body.score,
-            release : req.body.release,
-            image : req.body.image,
-            genreId : +req.body.genreId
-      
-        }).then(newMovie=>{
-            let response = {
-                status : 201,
-                meta : {
-                    url : getURLBase(req) + '/characters/' + newMovie.id
-                },
-                message : 'movie create'
-            }
-            return res.status(201).json(response)
-       
-        }).catch(err =>{
-            console.log(err);
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
 
+            db.movies.create({
+                title : req.body.title,
+                score : +req.body.score,
+                release : req.body.release,
+                image : req.body.image,
+                genreId : +req.body.genreId
+          
+            }).then(newMovie=>{
+                let response = {
+                    status : 201,
+                    meta : {
+                        url : getURLBase(req) + '/characters/' + newMovie.id
+                    },
+                    message : 'movie create'
+                }
+                return res.status(201).json(response)
+            
+            }).catch(err =>{
+                console.log(err);
+    
+                const response = {
+                    status : 400,
+                    msg : "movie no create"
+                }
+                res.status(400).json(response);
+            })
+        }else{
             const response = {
-                status : 400,
-                msg : "movie no create"
+                status : 500 ,
+                msg : 'Error validation data',
+                errors : errors.mapped()
             }
-            res.status(400).json(response);
-        })
+            res.status(500).json(response);
+        }
+
      },
 
 
@@ -118,8 +131,14 @@ module.exports = {
 
 
      update : async (req,res)=> {
+
+         const errors  =validationResult(req);  // Resultados de las validaciones.
+
         db.movies.findByPk(req.params.id)
         .then(movie=>{
+
+            if(errors.isEmpty()){ // Si la variable errors está vacía procede a actualizar la película
+
             db.movies.update({
                 title : req.body.title,
                 score : +req.body.score,
@@ -149,14 +168,24 @@ module.exports = {
                 }
                 res.status(500).json(response)
              })
+             
+        }else{
+
+            const response = {
+                status : 400,
+                msg : "error when updated the movie",
+                errors : errors.mapped(),
+            }
+            res.status(400).json(response);
+        }
             
         }).catch(err => { // err question db
             console.log(err);
             const response = {
-                status : 500,
+                status : 400,
                 msg : 'movie doesnt exist in the API'
             }
-            res.status(500).json(response)
+            res.status(400).json(response)
         })
      },
 
