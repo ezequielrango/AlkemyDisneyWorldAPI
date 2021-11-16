@@ -1,8 +1,14 @@
 
 const express = require('express');
 const router = express.Router();
+
+//controller
 const controller= require('../controllers/moviesController')
-const validation = require('../validations/moviesValidator') // Middleware de validación
+
+ // Middleware de validación
+const validation = require('../validations/moviesValidator')
+
+
 
   // Exercise 7 Challenge
 

@@ -5,6 +5,7 @@ const router = express.Router();
 // Controllers
 const controller= require('../controllers/characterController')
 
+const validation = require('../validations/charactersValidator') // Middleware de validación
 
 
 // ROUTES CHARACTER COLLECTION
@@ -12,7 +13,7 @@ const controller= require('../controllers/characterController')
 
     // Excercise 3 
 
-router.get('/list', controller.list)
+router.get('/', controller.list)
 
 
     // Excercise 4
