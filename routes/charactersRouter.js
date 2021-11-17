@@ -18,8 +18,8 @@ router.get('/', controller.list)
 
     // Excercise 4
 
-router.post('/',controller.create)
-router.put('/:id',controller.update)
+router.post('/',validation,controller.create)
+router.put('/:id',validation,controller.update)
 router.delete('/:id',controller.delete)
 
     // Excercise 5

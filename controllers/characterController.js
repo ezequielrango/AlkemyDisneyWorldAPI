@@ -1,5 +1,6 @@
 const db = require('../database/models')
-const {Op} = require('sequelize')
+const {Op} = require('sequelize');
+const { validationResult } = require('express-validator');
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
 
@@ -56,32 +57,45 @@ module.exports= {
 
      create : async (req,res)=> {
    
-        db.characters.create({
-            name : req.body.name,
-            age: +req.body.age,
-            weight: +req.body.weight,
-            history: req.body.history,
-            image: req.body.image
-      
-        }).then(newCharacter=>{
-            let response = {
-                status : 201,
-                meta : {
-                    url : getURLBase(req) + '/characters/' + newCharacter.id
-                },
-                message : 'character create'
-            }
-            return res.status(201).json(response)
-       
-        }).catch(err =>{
-            console.log(err);
+        const errors = validationResult(req)
 
+        if(errors.isEmpty()) {
+            db.characters.create({
+                name : req.body.name,
+                age: +req.body.age,
+                weight: +req.body.weight,
+                history: req.body.history,
+                image: req.body.image
+          
+            }).then(newCharacter=>{
+                let response = {
+                    status : 201,
+                    meta : {
+                        url : getURLBase(req) + '/characters/' + newCharacter.id
+                    },
+                    message : 'character create'
+                }
+                return res.status(201).json(response)
+           
+            }).catch(err =>{
+                console.log(err);
+    
+                const response = {
+                    status : 400,
+                    msg : "character no create"
+                }
+                res.status(400).json(response);
+            })
+        }else{
             const response = {
                 status : 400,
-                msg : "character no create"
+                msg : 'The character could not be created, check the values entered.' ,
+                errors: errors.mapped()
             }
-            res.status(400).json(response);
-        })
+            res.status(400).json(response)
+        }
+
+   
      },
 
 
