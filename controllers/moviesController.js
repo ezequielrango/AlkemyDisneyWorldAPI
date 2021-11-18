@@ -1,9 +1,11 @@
-const db = require('../database/models')
-const {Op} = require('sequelize')
+const db = require('../database/models');
+const {Op} = require('sequelize');
+
+
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
-
 const { validationResult } = require("express-validator");
+
 
 module.exports = {
     
@@ -19,7 +21,7 @@ module.exports = {
 
             where : {
                 title : {
-                    [Op.substring] : req.query.title ? req.query.title : ""  // Si a través de la query del request viene un title, busca por ese valor o sino trae todos. El Op. toma el espacio del string.
+                    [Op.substring] : req.query.title ? req.query.title : ""  //If through the query of the request comes a title, it looks for that value or else it brings all of them. The Op. takes the string space.
                 },
                 genreId : {
                     [Op.substring] : req.query.genre ? req.query.genre : ""
@@ -93,32 +95,32 @@ module.exports = {
                 title : req.body.title,
                 score : +req.body.score,
                 release : req.body.release,
-                image : req.body.image,
+                image : req.file ? req.file.filename : "defaultImage.png",
                 genreId : +req.body.genreId
           
             }).then(newMovie=>{
                 let response = {
                     status : 201,
-                    meta : {
-                        url : getURLBase(req) + '/characters/' + newMovie.id
-                    },
+                    url : getURLBase(req) + '/movies/' + newMovie.id ,
                     message : 'movie create'
                 }
                 return res.status(201).json(response)
             
-            }).catch(err =>{
-                console.log(err);
-    
+            }).catch(err =>{ //error promise
+          
+                console.log(err)
                 const response = {
                     status : 400,
                     msg : "movie no create"
                 }
                 res.status(400).json(response);
             })
-        }else{
+
+        }else{ // second option of the conditional
+           
             const response = {
                 status : 500 ,
-                msg : 'Error validation data',
+                msg : 'Error data validation',
                 errors : errors.mapped()
             }
             res.status(500).json(response);
@@ -132,12 +134,12 @@ module.exports = {
 
      update : async (req,res)=> {
 
-         const errors  =validationResult(req);  // Resultados de las validaciones.
+         const errors  =validationResult(req);  // Validation results.
 
         db.movies.findByPk(req.params.id)
         .then(movie=>{
 
-            if(errors.isEmpty()){ // Si la variable errors está vacía procede a actualizar la película
+            if(errors.isEmpty()){ //  If the errors variable is empty, proceed to update the movie
 
             db.movies.update({
                 title : req.body.title,
@@ -208,7 +210,7 @@ module.exports = {
             }
             res.status(200).json(response)
 
-        }).catch(err=> { // err update 
+        }).catch(err=> { // err delete 
                  console.log(err);
                  const response = {
                     status : 500,

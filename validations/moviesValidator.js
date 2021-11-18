@@ -1,6 +1,7 @@
 
 const {body} = require('express-validator');
-const db = require('../database/models')
+const db = require('../database/models');
+const path = require('path')
 
 module.exports =  [
 
@@ -43,10 +44,10 @@ module.exports =  [
         .custom((value,{req}) =>{
             return db.genres.findByPk(value)
             .then(genre =>{
-                if(!genre){   //Motivo por el cual se rechaza la promesa
-                    return Promise.reject(); // Retorna promesa rechazada
+                if(!genre){   //Reason for rejection of the promise
+                    return Promise.reject(); // Return of rejected promise
                 }
-            }).catch(() => Promise.reject('non-existent genre')) // Encapsulo error con el motivo de la promesa rechazada (genero inexistente)
+            }).catch(() => Promise.reject('non-existent genre')) // I encapsulate error with the reason for the rejected promise (non-existent gender).
         }),
         
 ]
