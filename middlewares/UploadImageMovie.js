@@ -10,7 +10,7 @@ const storage  =multer.diskStorage({
        cb(null, path.join(__dirname,'../images/movies'))
     },
     filename: (req,file,cb) => {
-      const newFileName = `img-${Date.now()}${path.extname(file.originalname)}`; //nombre + fecha + extensión del archivo original
+      const newFileName = `img-${Date.now()}${path.extname(file.originalname)}`; //name + date + file extension
       cb(null, newFileName )
     }
   });
