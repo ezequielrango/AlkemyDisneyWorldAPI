@@ -18,21 +18,20 @@ module.exports =  [
         .notEmpty().withMessage('Enter a Date')
         .isDate().withMessage('Format error'),
       
-        body("image")
-        .custom((value,{req}) =>{
-            let extensions = [".jpg",".png",".jpeg",".gif"] // Create array with support extensions
 
-            if(!req.file){  // If there is no file in the request and the method is other than PUT : 
+        body("image").custom((value,{req})=>{
+            let extensions = [".jpg",".jpeg",".gif",".png",]
+    
+            if(!req.file){  // If there is no file in the request
                 throw new Error("required")
+            }else{
+                if(!extensions.includes(path.extname(req.file.originalname))){// If there is a file in the request but it does not contain an extension of those contained in the array :
+                    throw new Error(`las extensiones permitidas son ${extensions.join(", ")}`);
+                }else{
+                    return true 
+                }
             }
-
-            if(!extensions.includes(path.extname(req.file.originalname))){   // If there is a file in the request but it does not contain an extension of those contained in the array :
-                throw new Error("format error")
-            }
-
-            return true
         }),
-
     
      body('genreId')
         .notEmpty().withMessage('Enter corresponding genre')
