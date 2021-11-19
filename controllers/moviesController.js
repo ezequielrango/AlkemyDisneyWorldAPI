@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const {Op} = require('sequelize');
-
+const fs = require('fs');
+const path = require('path');
 
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
 
@@ -107,7 +108,8 @@ module.exports = {
                 return res.status(201).json(response)
             
             }).catch(err =>{ //error promise
-          
+                req.file ? fs.unlinkSync(path.join(__dirname, '../images/movies/', req.file.filename)) : null ; // If an error occurs, the uploaded file will be deleted.
+            
                 console.log(err)
                 const response = {
                     status : 400,
@@ -117,7 +119,7 @@ module.exports = {
             })
 
         }else{ // second option of the conditional
-           
+            req.file ? fs.unlinkSync(path.join(__dirname, '../images/movies/', req.file.filename)) : null;
             const response = {
                 status : 500 ,
                 msg : 'Error data validation',
