@@ -35,8 +35,10 @@ module.exports = {
         }).then(movies => {
             const response = {
                 status : 200,
+                quantity : movies.length,
                 msg : 'All movies',
-                data: movies
+                data: movies,
+             
             }
             res.status(200).json(response)
         }).catch(err => {
@@ -61,12 +63,17 @@ module.exports = {
             ]
 
         }).then(movie => {
+          
+            movie.image=  getURLBase(req) + '/movies/' + movie.image
+        
             const response  ={
                 meta : {
                     status: 200,
                     msg :'Detail movie and characters',
                 },
-                data : movie
+                data : {
+                    movie, 
+                } 
             }
             res.status(200).json(response)
         }).catch(err => {
@@ -96,7 +103,7 @@ module.exports = {
                 title : req.body.title,
                 score : +req.body.score,
                 release : req.body.release,
-                image : req.file ? req.file.filename : "defaultImage.png",
+                image :  req.file.filename ,
                 genreId : +req.body.genreId
           
             }).then(newMovie=>{
