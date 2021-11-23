@@ -154,7 +154,7 @@ module.exports = {
                 title : req.body.title,
                 score : +req.body.score,
                 release : req.body.release,
-                image : req.body.image,
+                image : req.file ? req.file.filename : movie.image,
                 genreId : +req.body.genreId
             },{
                 where : {
@@ -165,7 +165,7 @@ module.exports = {
                  const response = {
                      status :200,
                      meta : {
-                        url : getURLBase(req) + '/characters/' + movieUpdated.id
+                        url : getURLBase(req) + '/movies/' + movieUpdated.id
                     },
                      msg : 'movie updated '
                  }
