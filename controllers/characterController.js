@@ -2,7 +2,7 @@ const db = require('../database/models')
 const {Op} = require('sequelize');
 const { validationResult } = require('express-validator');
 const getURLBase = req => `${req.protocol}://${req.get('host')}`;
-
+const fs = require('fs');
 
 
 module.exports= {
@@ -65,7 +65,7 @@ module.exports= {
                 age: +req.body.age,
                 weight: +req.body.weight,
                 history: req.body.history,
-                image: req.body.image
+                image: req.file.filename
           
             }).then(newCharacter=>{
                 let response = {
@@ -78,8 +78,8 @@ module.exports= {
                 return res.status(201).json(response)
            
             }).catch(err =>{
-                console.log(err);
-    
+                req.file ? fs.unlinkSync(path.join(__dirname, '../images/characters',req.file.filename)) : null;  // If an error occurs, the uploaded file will be deleted.
+                console.log(err); 
                 const response = {
                     status : 400,
                     msg : "character no create"
@@ -87,6 +87,7 @@ module.exports= {
                 res.status(400).json(response);
             })
         }else{
+            req.file ? fs.unlinkSync(path.join(__dirname, '../images/characters', req.file.filename)) : null;
             const response = {
                 status : 400,
                 msg : 'The character could not be created, check the values entered.' ,
