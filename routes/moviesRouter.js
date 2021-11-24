@@ -1,7 +1,9 @@
 
 const express = require('express');
 const router = express.Router();
-const path= require('path');
+// Middleware uploadFile
+const upload = require('../middlewares/UploadImageMovie');
+
 
 
 //controller
@@ -9,8 +11,6 @@ const controller= require('../controllers/moviesController');
 
  // Middleware validation
 const validation = require('../validations/moviesValidator');
-// Middleware uploadFile
-const upload = require('../middlewares/UploadImageMovie');
 
 
 

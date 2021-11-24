@@ -1,9 +1,9 @@
 
 const express = require('express');
 const router = express.Router();
-const upload = require('../middlewares/UploadImageCharacter')
 // Controllers
 const controller= require('../controllers/characterController')
+const upload = require('../middlewares/UploadImageCharacter')
 
 const validation = require('../validations/charactersValidator') // Middleware de validación
 
