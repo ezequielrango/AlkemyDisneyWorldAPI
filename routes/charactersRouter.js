@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-
+const upload = require('../middlewares/UploadImageCharacter')
 // Controllers
 const controller= require('../controllers/characterController')
 
@@ -18,8 +18,8 @@ router.get('/', controller.list)
 
     // Excercise 4
 
-router.post('/',validation,controller.create)
-router.put('/:id',validation,controller.update)
+router.post('/',upload.single('image'),validation,controller.create)
+router.put('/:id',upload.single('image'),validation,controller.update)
 router.delete('/:id',controller.delete)
 
     // Excercise 5
