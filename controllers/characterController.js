@@ -104,46 +104,53 @@ module.exports= {
 
 
      update : async (req,res)=> {
+         let oldImage;
+         const errors = validationResult(req)
+
         db.characters.findByPk(req.params.id)
         .then(character=>{
-            db.characters.update({
-                 name : req.body.name,
-                 age: +req.body.age,
-                 weight: +req.body.weight,
-                 history: req.body.history,
-                 image: req.body.image
-            },{
-                where : {
-                    id : req.params.id    
-                }  
-        
-             }).then(characterUpdate=>{
-                 const response = {
-                     status :200,
-                     meta : {
-                        url : getURLBase(req) + '/characters/' + character.id
-                    },
-                     msg : 'character updated '
-                 }
-                 res.status(200).json(response);
-    
-             }).catch(err=> { // err update 
-                 console.log(err);
-                 const response = {
-                    status : 500,
-                    msg :'internal server error ju-ju'
-                }
-                res.status(500).json(response)
-             })
+            if(errors.isEmpty()){
+                oldImage = character.image
+
+                db.characters.update({
+                     name : req.body.name,
+                     age: +req.body.age,
+                     weight: +req.body.weight,
+                     history: req.body.history,
+                     image: req.file ? req.file.filename : character.image
+                },{
+                    where : {
+                        id : req.params.id    
+                    }  
             
-        }).catch(err => { // err question db
-            console.log(err);
-            const response = {
-                status : 500,
-                msg : 'character doesnt exist in the API'
-            }
-            res.status(500).json(response)
-        })
+                 }).then(characterUpdate=>{
+                     const response = {
+                         status :200,
+                         meta : {
+                            url : getURLBase(req) + '/characters/' + character.id
+                        },
+                         msg : 'character updated '
+                     }
+                     res.status(200).json(response);
+        
+                 }).catch(err=> { // err update 
+                     console.log(err);
+                     const response = {
+                        status : 500,
+                        msg :'internal server error'
+                    }
+                    res.status(500).json(response)
+                 })
+            }else{
+
+                const response = {
+                    status : 400,
+                    msg : 'character doesnt exist in the API',
+                    errors : errors.mapped()
+                }
+                res.status(400).json(response);            }
+            })
+            
      },
 
 
@@ -169,7 +176,7 @@ module.exports= {
                  console.log(err);
                  const response = {
                     status : 500,
-                    msg :'internal server error ju-ju'
+                    msg :'internal server error '
                 }
                 res.status(500).json(response)
              })
@@ -190,6 +197,7 @@ module.exports= {
                 ]}  
             ]
         }).then(detailCharacter=> {
+            detailCharacter.image = getURLBase(req) + '/characters/' + detailCharacter.image
            const response = {
                status : 200,
                msg : 'character and movie associate',
