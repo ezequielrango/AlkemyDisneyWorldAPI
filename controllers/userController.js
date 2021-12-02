@@ -13,13 +13,13 @@ module.exports = {
         if(errors.isEmpty()){
             db.users.create({
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password,10)
+                password: bcrypt.hashSync(req.body.password,10)  //encrypt password
             }).then(newUser =>{
                 const response = {
                     status: 200,
                     msg: "create ",
                 }
-
+                res.status(200).json(response)
             }).catch(err =>{
                 const response = {
                     status: 500,
@@ -50,7 +50,7 @@ module.exports = {
             }).then(user =>{
                     const userToken = {
                         id: user.id,
-                        name: user.name
+                        name: user.email
                     };
 
                     const token = jwt.sign(userToken,process.env.KEY_SECRET, {
@@ -60,25 +60,25 @@ module.exports = {
                     const response = {
                         status: 200,
                         token: token,
-                        msg : 'please enter the token'
+                        msg : 'please enter the token, expire in 1h'
                     }
 
                     res.status(200).json(response);
             }).catch(err =>{
                 const response = {
-                    status: 401,
+                    status: 403,
                     msg: "invalid credentials"
                 }
 
-                res.status(401).json(response);
+                res.status(403).json(response);
             })
         }else{
             const response = {
-                status: 401,
+                status: 403,
                 msg: "invalid credentials"
             }
 
-            res.status(401).json(response);
+            res.status(403).json(response);
         }
     }
 }
