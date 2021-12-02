@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "ba84e678-6c36-485f-8156-99ff182568d7",
+		"name": "DisneyAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CHARACTERS",
+			"item": [
+				{
+					"name": "CRUD CHARACTERS",
+					"item": [
+						{
+							"name": "Delete Characters",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://localhost:3030/characters/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"characters",
+										"10"
+									]
+								},
+								"description": "Delete character"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Characters",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Rapunzel",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "13",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "40",
+											"type": "text"
+										},
+										{
+											"key": "history",
+											"value": " Ella es la princesa de Corona, conocida por su largo, magico y dorado cabello. Siendo una niña, Rapunzel fue raptada por Gothel y encerrada en una torre remota por dieciocho años, en los cuales quedó fascinada con un fénomeno relacionado con las luces flotantes, las cuales sólo aparecían en su cumpleaños. ",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/54341/Videos/Captures/Parcial Administracion.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3030/characters/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"characters",
+										""
+									]
+								},
+								"description": "Create characters Disney"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Characters",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Rapunzel",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "13",
+											"type": "text"
+										},
+										{
+											"key": "weight",
+											"value": "40",
+											"type": "text"
+										},
+										{
+											"key": "history",
+											"value": " Ella es la princesa de Corona, conocida por su largo, magico y dorado cabello. Siendo una niña, Rapunzel fue raptada por Gothel y encerrada en una torre remota por dieciocho años, en los cuales quedó fascinada con un fénomeno relacionado con las luces flotantes, las cuales sólo aparecían en su cumpleaños. ",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/54341/Videos/Captures/Parcial Administracion.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3030/characters/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"characters",
+										"1"
+									]
+								},
+								"description": "Create characters Disney"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DETAIL CHARACTER",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3030/characters/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"characters",
+								"2"
+							]
+						},
+						"description": "All characters"
+					},
+					"response": []
+				},
+				{
+					"name": "LIST CHARACTER",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:3030/characters/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"characters",
+								""
+							]
+						},
+						"description": "All characters"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MOVIES",
+			"item": [
+				{
+					"name": "CRUD MOVIES",
+					"item": [
+						{
+							"name": "Create movie",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "La dama y el Vagabundo",
+											"type": "text"
+										},
+										{
+											"key": "score",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "release",
+											"value": "2016/05/12",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/54341/Videos/Captures/Playground Digital House - Mozilla Firefox 14_10_2021 00_03_10.png"
+										},
+										{
+											"key": "genreId",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3030/movies/",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"movies",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update movie",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "La dama y el Vagabundo",
+											"type": "text"
+										},
+										{
+											"key": "score",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "release",
+											"value": "2016/05/12",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/54341/Videos/Captures/Playground Digital House - Mozilla Firefox 14_10_2021 00_03_10.png"
+										},
+										{
+											"key": "genreId",
+											"value": "2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3030/movies/2",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"movies",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Movie",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3030/movies/7",
+									"host": [
+										"localhost"
+									],
+									"port": "3030",
+									"path": [
+										"movies",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List Movie",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Moana",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "release",
+									"value": "2016/05/12",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "moana.jpg",
+									"type": "text"
+								},
+								{
+									"key": "genreId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/movies/",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Movie",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Moana",
+									"type": "text"
+								},
+								{
+									"key": "score",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "release",
+									"value": "2016/05/12",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"value": "moana.jpg",
+									"type": "text"
+								},
+								{
+									"key": "genreId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/movies/",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RELATE",
+			"item": [
+				{
+					"name": "Create Relation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "movieId",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "characterId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/relate/",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"relate",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Relation",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "movieId",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "characterId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/relate",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"relate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "REGISTER",
+					"request": {
+						"auth": {
+							"type": "apikey"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "eze@outlook.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "hola1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODM5MzU0OCwiZXhwIjoxNjM4Mzk3MTQ4fQ.NmW_6RVEr8QoOxKdg86z96OwHrZLkjwQZy1mfW_Hon0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODM5MzU0OCwiZXhwIjoxNjM4Mzk3MTQ4fQ.NmW_6RVEr8QoOxKdg86z96OwHrZLkjwQZy1mfW_Ho",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "eze@outlook.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "hola1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3030/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3030",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -3,7 +3,16 @@ const {Op}  =require('sequelize')
 const bcrypt = require('bcryptjs');
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const sgMail = require('@sendgrid/mail');
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+const sendgridKey = process.env.SENDGRID_API_KEY;
 
+const transporter = nodemailer.createTransport(sendGridTransport({
+    auth:{
+        api_key: sendgridKey
+    }
+})) 
 
 
 module.exports = {
@@ -17,8 +26,16 @@ module.exports = {
             }).then(newUser =>{
                 const response = {
                     status: 200,
-                    msg: "create ",
+                    msg: "create, check email ",
                 }
+                transporter.sendMail({
+                    to: newUser.email, 
+                    from: 'ezequielrango29@gmail.com', 
+                    subject: 'Challenge Alkemy Backend con Node.js',
+                    html: `<p>Gracias por registrarte${newUser.email}</p>`,
+                })
+                
+
                 res.status(200).json(response)
             }).catch(err =>{
                 const response = {
