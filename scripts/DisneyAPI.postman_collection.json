@@ -21,7 +21,7 @@
 									"urlencoded": []
 								},
 								"url": {
-									"raw": "http://localhost:3030/characters/10",
+									"raw": "http://localhost:3030/characters/22",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -29,7 +29,7 @@
 									"port": "3030",
 									"path": [
 										"characters",
-										"10"
+										"22"
 									]
 								},
 								"description": "Delete character"
@@ -44,7 +44,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
 											"type": "string"
 										}
 									]
@@ -56,28 +56,28 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "Rapunzel",
+											"value": "Arturito",
 											"type": "text"
 										},
 										{
 											"key": "age",
-											"value": "13",
+											"value": "43",
 											"type": "text"
 										},
 										{
 											"key": "weight",
-											"value": "40",
+											"value": "6",
 											"type": "text"
 										},
 										{
 											"key": "history",
-											"value": " Ella es la princesa de Corona, conocida por su largo, magico y dorado cabello. Siendo una niña, Rapunzel fue raptada por Gothel y encerrada en una torre remota por dieciocho años, en los cuales quedó fascinada con un fénomeno relacionado con las luces flotantes, las cuales sólo aparecían en su cumpleaños. ",
+											"value": "Woody está inspirado en el juguete infantil preferido del productor ejecutivo y director de las dos primeras entregas de la franquicia John Lasseter. El animador/director Bud Luckey diseñó el personaje para hacer de él un verdadero vaquero.",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/54341/Videos/Captures/Parcial Administracion.png"
+											"src": "/C:/Users/54341/Desktop/woody.jpg"
 										}
 									]
 								},
@@ -105,7 +105,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
 											"type": "string"
 										}
 									]
@@ -117,33 +117,33 @@
 									"formdata": [
 										{
 											"key": "name",
-											"value": "Rapunzel",
+											"value": "Woody",
 											"type": "text"
 										},
 										{
 											"key": "age",
-											"value": "13",
+											"value": "19",
 											"type": "text"
 										},
 										{
 											"key": "weight",
-											"value": "40",
+											"value": "10",
 											"type": "text"
 										},
 										{
 											"key": "history",
-											"value": " Ella es la princesa de Corona, conocida por su largo, magico y dorado cabello. Siendo una niña, Rapunzel fue raptada por Gothel y encerrada en una torre remota por dieciocho años, en los cuales quedó fascinada con un fénomeno relacionado con las luces flotantes, las cuales sólo aparecían en su cumpleaños. ",
+											"value": "Woody está inspirado en el juguete infantil preferido del productor ejecutivo y director de las dos primeras entregas de la franquicia John Lasseter. El animador/director Bud Luckey diseñó el personaje para hacer de él un verdadero vaquero.",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/54341/Videos/Captures/Parcial Administracion.png"
+											"src": "/C:/Users/54341/Desktop/woody.jpg"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost:3030/characters/1",
+									"raw": "http://localhost:3030/characters/22",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -151,7 +151,7 @@
 									"port": "3030",
 									"path": [
 										"characters",
-										"1"
+										"22"
 									]
 								},
 								"description": "Create characters Disney"
@@ -171,7 +171,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
 									"type": "string"
 								}
 							]
@@ -183,7 +183,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:3030/characters/2",
+							"raw": "http://localhost:3030/characters/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -191,7 +191,7 @@
 							"port": "3030",
 							"path": [
 								"characters",
-								"2"
+								"22"
 							]
 						},
 						"description": "All characters"
@@ -242,7 +242,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
 											"type": "string"
 										}
 									]
@@ -254,7 +254,7 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "La dama y el Vagabundo",
+											"value": "Toy Story",
 											"type": "text"
 										},
 										{
@@ -270,11 +270,11 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/54341/Videos/Captures/Playground Digital House - Mozilla Firefox 14_10_2021 00_03_10.png"
+											"src": "/C:/Users/54341/Desktop/toystory.jpg"
 										},
 										{
 											"key": "genreId",
-											"value": "2",
+											"value": "1",
 											"type": "text"
 										}
 									]
@@ -301,7 +301,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODQ2NzAzMywiZXhwIjoxNjM4NDcwNjMzfQ.95P08L1DGhwDLyV8jsRThWDZ13C0lqHBO46pIsJ7Umg",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
 											"type": "string"
 										}
 									]
@@ -313,23 +313,23 @@
 									"formdata": [
 										{
 											"key": "title",
-											"value": "La dama y el Vagabundo",
+											"value": "Toy Story 3",
 											"type": "text"
 										},
 										{
 											"key": "score",
-											"value": "4",
+											"value": "5",
 											"type": "text"
 										},
 										{
 											"key": "release",
-											"value": "2016/05/12",
+											"value": "2019/05/12",
 											"type": "text"
 										},
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/54341/Videos/Captures/Playground Digital House - Mozilla Firefox 14_10_2021 00_03_10.png"
+											"src": "/C:/Users/54341/Desktop/toy3.jpg"
 										},
 										{
 											"key": "genreId",
@@ -339,14 +339,14 @@
 									]
 								},
 								"url": {
-									"raw": "localhost:3030/movies/2",
+									"raw": "localhost:3030/movies/19",
 									"host": [
 										"localhost"
 									],
 									"port": "3030",
 									"path": [
 										"movies",
-										"2"
+										"19"
 									]
 								}
 							},
@@ -358,14 +358,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "localhost:3030/movies/7",
+									"raw": "localhost:3030/movies/19",
 									"host": [
 										"localhost"
 									],
 									"port": "3030",
 									"path": [
 										"movies",
-										"7"
+										"19"
 									]
 								}
 							},
@@ -379,6 +379,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -431,6 +441,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -464,14 +484,14 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3030/movies/",
+							"raw": "localhost:3030/movies/19",
 							"host": [
 								"localhost"
 							],
 							"port": "3030",
 							"path": [
 								"movies",
-								""
+								"19"
 							]
 						}
 					},
@@ -480,11 +500,21 @@
 			]
 		},
 		{
-			"name": "RELATE",
+			"name": "RELATION",
 			"item": [
 				{
 					"name": "Create Relation",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -492,24 +522,24 @@
 							"urlencoded": [
 								{
 									"key": "movieId",
-									"value": "3",
+									"value": "19",
 									"type": "text"
 								},
 								{
 									"key": "characterId",
-									"value": "1",
+									"value": "22",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3030/relate/",
+							"raw": "localhost:3030/relation/",
 							"host": [
 								"localhost"
 							],
 							"port": "3030",
 							"path": [
-								"relate",
+								"relation",
 								""
 							]
 						}
@@ -520,7 +550,14 @@
 					"name": "Delete Relation",
 					"request": {
 						"auth": {
-							"type": "bearer"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImV6ZUBvdXRsb29rLmNvbSIsImlhdCI6MTYzODY3NTIyNiwiZXhwIjoxNjM4Njc4ODI2fQ.aP3RYSmgU6dCHpE2MZsJCevKra7zfrOZBgwG1edQjdQ",
+									"type": "string"
+								}
+							]
 						},
 						"method": "DELETE",
 						"header": [],
@@ -529,24 +566,24 @@
 							"urlencoded": [
 								{
 									"key": "movieId",
-									"value": "3",
+									"value": "19",
 									"type": "text"
 								},
 								{
 									"key": "characterId",
-									"value": "1",
+									"value": "22",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:3030/relate",
+							"raw": "localhost:3030/relation",
 							"host": [
 								"localhost"
 							],
 							"port": "3030",
 							"path": [
-								"relate"
+								"relation"
 							]
 						}
 					},

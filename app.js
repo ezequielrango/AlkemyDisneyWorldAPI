@@ -29,7 +29,7 @@ app.use(authorization); //apply the authorization before the program reads the r
 // ENDPOINTS (all private)
 app.use('/characters',characterRouter); 
 app.use('/movies',movieRouter);
-app.use("/relate",relateRouter)
+app.use("/relation",relateRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -25,7 +25,7 @@ module.exports = {
                 password: bcrypt.hashSync(req.body.password,10)  //encrypt password
             }).then(newUser =>{
                 const response = {
-                    status: 200,
+                    status: 201,
                     msg: "create, check email ",
                 }
                 transporter.sendMail({
@@ -83,19 +83,20 @@ module.exports = {
                     res.status(200).json(response);
             }).catch(err =>{
                 const response = {
-                    status: 403,
+                    status: 401,
                     msg: "invalid credentials"
                 }
 
-                res.status(403).json(response);
+                res.status(401).json(response);
             })
         }else{
             const response = {
-                status: 403,
-                msg: "invalid credentials"
+                status: 401,
+                msg: "invalid credentials",
+                errors: errors.mapped()
             }
 
-            res.status(403).json(response);
+            res.status(401).json(response);
         }
     }
 }
