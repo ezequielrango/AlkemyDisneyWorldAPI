@@ -3,7 +3,6 @@ const {Op}  =require('sequelize')
 const bcrypt = require('bcryptjs');
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const sgMail = require('@sendgrid/mail');
 const nodemailer = require('nodemailer');
 const sendGridTransport = require('nodemailer-sendgrid-transport');
 const sendgridKey = process.env.SENDGRID_API_KEY;
